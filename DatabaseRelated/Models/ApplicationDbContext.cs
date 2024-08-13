@@ -9,11 +9,13 @@ namespace DatabaseRelated.Models
     public class ApplicationDbContext:DbContext
     {
         public ApplicationDbContext()
+        : base("Default")
         {
-
         }
 
         //Add models for Create/Delete/Update of Table
-        DbSet<Student> Student { get; set; }
+        //DbSet<Student> Student { get; set; }
+
+        public System.Data.Entity.DbSet<DatabaseRelated.Models.Student> Students { get; set; }
     }
 }

@@ -11,6 +11,7 @@ namespace DatabaseRelated.Models
         [Key]
         public int RollNumber { get; set; }
         public string Name { get; set; }
-        public string Description { get; set; }
+        //public string Description { get; set; }
+        public string FName { get; set; }
     }
 }
