@@ -48,7 +48,7 @@ namespace DatabaseRelated.Controllers
         public IEnumerable<Student> Display()
         {
             List<Student> student=db.Students.ToList();
-            return student;
+            return student;a
         }
 
     }
