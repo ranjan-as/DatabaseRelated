@@ -1,0 +1,35 @@
+﻿@model DatabaseRelated.Models.Student
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Student</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Delete", "Delete", new { id = Model.RollNumber }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RollNumber }) |
+    @Html.ActionLink("Back to List", "Display")
+</p>

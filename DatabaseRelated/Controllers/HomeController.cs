@@ -42,13 +42,41 @@ namespace DatabaseRelated.Controllers
             ApplicationDbContext context = new ApplicationDbContext();
             context.Students.Add(s);
             context.SaveChanges();
-            return View();
+            return RedirectToAction("Display", "Home");
         }
 
-        public IEnumerable<Student> Display()
+        public ActionResult Display()
         {
             List<Student> student=db.Students.ToList();
-            return student;
+            return View(student);
+        }
+
+        public ActionResult Edit(int id) {
+            Student student = db.Students.Where(x=>x.RollNumber==id).SingleOrDefault();
+            return View(student);
+        }
+        [HttpPost]
+        public ActionResult Edit(Student student)
+        {
+            Student st = db.Students.Where(x => x.RollNumber == student.RollNumber).SingleOrDefault();
+            st.Name = student.Name;
+            st.FName = student.FName;
+            db.SaveChanges();
+            return RedirectToAction("Display","Home");
+        }
+
+        public ActionResult Details(int id)
+        {
+            Student student = db.Students.Where(x => x.RollNumber == id).SingleOrDefault();
+            return View(student);
+        }
+
+        public ActionResult Delete(int id)
+        {
+            Student student = db.Students.Where(x => x.RollNumber == id).SingleOrDefault();
+            db.Students.Remove(student);
+            db.SaveChanges();
+            return RedirectToAction("Display", "Home");
         }
 
     }
