@@ -70,7 +70,7 @@ namespace DatabaseRelated.Controllers
             Student student = db.Students.Where(x => x.RollNumber == id).SingleOrDefault();
             return View(student);
         }
-
+        [HttpPost]
         public ActionResult Delete(int id)
         {
             Student student = db.Students.Where(x => x.RollNumber == id).SingleOrDefault();

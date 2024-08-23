@@ -17,5 +17,6 @@ namespace DatabaseRelated.Models
         //DbSet<Student> Student { get; set; }
 
         public System.Data.Entity.DbSet<DatabaseRelated.Models.Student> Students { get; set; }
+        public System.Data.Entity.DbSet<DatabaseRelated.Models.Degree> Degrees { get; set; }
     }
 }
