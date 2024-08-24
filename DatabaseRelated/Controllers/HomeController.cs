@@ -35,6 +35,8 @@ namespace DatabaseRelated.Controllers
         }
 
         public ActionResult Create() {
+            List<Degree> degree= db.Degrees.OrderBy(x=>x.DegreeName).ToList();
+            
             return View();
         }
         [HttpPost]
@@ -71,11 +73,15 @@ namespace DatabaseRelated.Controllers
             return View(student);
         }
         [HttpPost]
+        //[ValidateAntiForgeryToken]
         public ActionResult Delete(int id)
         {
             Student student = db.Students.Where(x => x.RollNumber == id).SingleOrDefault();
             db.Students.Remove(student);
             db.SaveChanges();
+
+            //var obj = db.Students.Include("Semeter").Where(x => x.RollNumber == id).ToList();
+
             return RedirectToAction("Display", "Home");
         }
 

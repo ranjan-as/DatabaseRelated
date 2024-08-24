@@ -17,5 +17,8 @@ namespace DatabaseRelated.Models
 
         //public int DegreeId { get; set; }
         public Degree  Degree { get; set; }
+
+        
+        ICollection<Semeter> Semeters { get; set; }
     }
 }

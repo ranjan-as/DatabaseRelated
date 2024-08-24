@@ -127,6 +127,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DegreeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -147,9 +148,14 @@
     <Compile Include="Migrations\202408220822015_Degree_1.Designer.cs">
       <DependentUpon>202408220822015_Degree_1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202408240813166_Semester.cs" />
+    <Compile Include="Migrations\202408240813166_Semester.Designer.cs">
+      <DependentUpon>202408240813166_Semester.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Degree.cs" />
+    <Compile Include="Models\Semeter.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -208,6 +214,11 @@
     <Content Include="Views\Home\Display.cshtml" />
     <Content Include="Views\Home\Edit.cshtml" />
     <Content Include="Views\Home\Details.cshtml" />
+    <Content Include="Views\Home\Delete.cshtml" />
+    <Content Include="Views\Degree\Index.cshtml" />
+    <Content Include="Views\Degree\Create.cshtml" />
+    <Content Include="Views\Degree\Edit.cshtml" />
+    <Content Include="Views\Degree\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -251,6 +262,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202408220822015_Degree_1.resx">
       <DependentUpon>202408220822015_Degree_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202408240813166_Semester.resx">
+      <DependentUpon>202408240813166_Semester.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

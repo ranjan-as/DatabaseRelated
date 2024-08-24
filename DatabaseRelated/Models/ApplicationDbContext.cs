@@ -18,5 +18,7 @@ namespace DatabaseRelated.Models
 
         public System.Data.Entity.DbSet<DatabaseRelated.Models.Student> Students { get; set; }
         public System.Data.Entity.DbSet<DatabaseRelated.Models.Degree> Degrees { get; set; }
+
+        public System.Data.Entity.DbSet<DatabaseRelated.Models.Semeter> Semeter { get; set; }
     }
 }
