@@ -36,7 +36,15 @@ namespace DatabaseRelated.Controllers
 
         public ActionResult Create() {
             List<Degree> degree= db.Degrees.OrderBy(x=>x.DegreeName).ToList();
-            
+            List<SelectListItem> lst= new List<SelectListItem>();
+            foreach (var item in degree)
+            {
+                SelectListItem selectListItem = new SelectListItem();
+                selectListItem.Text = item.DegreeName;
+                selectListItem.Value = item.DegreeId.ToString();
+                lst.Add(selectListItem);
+            }
+            TempData["drop"]=lst;
             return View();
         }
         [HttpPost]
