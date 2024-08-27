@@ -48,8 +48,11 @@ namespace DatabaseRelated.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Create(Student s) {
+        public ActionResult Create(Student s, string DegreeName) {
             ApplicationDbContext context = new ApplicationDbContext();
+            int did = Convert.ToInt32(DegreeName);
+            Degree d= db.Degrees.Where(x=>x.DegreeId == did).SingleOrDefault();
+            s.Degree = d;
             context.Students.Add(s);
             context.SaveChanges();
             return RedirectToAction("Display", "Home");
