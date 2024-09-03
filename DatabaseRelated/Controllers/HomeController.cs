@@ -52,11 +52,31 @@ namespace DatabaseRelated.Controllers
             ApplicationDbContext context = new ApplicationDbContext();
             int did = Convert.ToInt32(DegreeName);
             Degree d= db.Degrees.Where(x=>x.DegreeId == did).SingleOrDefault();
+            context.Entry(d).State = System.Data.Entity.EntityState.Unchanged;
+            //s.Degree.DegreeId =did;
             s.Degree = d;
             context.Students.Add(s);
             context.SaveChanges();
             return RedirectToAction("Display", "Home");
         }
+
+        //public ActionResult Create(Student s, string DegreeName)
+        //{
+        //    // Convert the DegreeName to DegreeId
+        //    int did = Convert.ToInt32(DegreeName);
+
+        //    // Retrieve the existing Degree object from the database
+        //    Degree d = db.Degrees.Where(x => x.DegreeId == did).SingleOrDefault();
+
+        //    // Assign the existing Degree object to the Student
+        //    s.Degree = d;
+
+        //    // Add the new Student to the context and save changes
+        //    db.Students.Add(s);
+        //    db.SaveChanges();
+
+        //    return RedirectToAction("Display", "Home");
+        //}
 
         public ActionResult Display()
         {
@@ -83,7 +103,7 @@ namespace DatabaseRelated.Controllers
             Student student = db.Students.Where(x => x.RollNumber == id).SingleOrDefault();
             return View(student);
         }
-        [HttpPost]
+        //[HttpPost]
         //[ValidateAntiForgeryToken]
         public ActionResult Delete(int id)
         {
